@@ -1,0 +1,354 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <link href="/CSS/trainers_per_course.css" rel="stylesheet" />
+    <title>LabPap's School</title>
+</head>
+<body>
+    <!--Datalist fot title-->
+    <datalist id="languages">
+        <option value="C" />
+        <option value="C#" />
+        <option value="C++" />
+        <option value="Python" />
+        <option value="Java" />
+        <option value="VB" />
+        <option value="JavaScript" />
+        <option value="PHP" />
+        <option value="Assembly" />
+        <option value="SQL" />
+        <option value="R" />
+        <option value="Ruby" />
+        <option value="Matlab" />
+        <option value="Go" />
+        <option value="Delphi" />
+        <option value="Julia" />
+        <option value="Ada" />
+        <option value="D" />
+        <option value="Apex" />
+        <option value="TypeScript" />
+        <option value="Bash" />
+    </datalist>
+
+    <!--Modal Pair Trainers per Course-->
+    <div class="modal fade" id="pair" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Pair Trainers per Course!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="pair_form">
+                        <div class="form-check">
+                            <label for="sellect">Select Course:</label>
+                            <select class="form-control" id="select" name="course" value="" required>
+                                <option>C#</option>
+                                <option>Python</option>
+                                <option>JavaScript</option>
+                                <option>C++</option>
+                                <option>Java</option>
+                            </select>
+                            <div class="form-check mt-2">
+                                <small>Hold ctrl or shift (or drag with the mouse) to select multiple trainers.</small>
+                                <select class="form-control" id="multi-select" name="trainers" value="" multiple required>
+                                    <option value="panos_sakelarios">Panos Sakelarios</option>
+                                    <option value="george_kesopoulos">George Kesopoulos</option>
+                                    <option value="hlias_karageorgos">Hlias Karageorgos</option>
+                                    <option value="stauros_gouleas">Stauros Gouleas</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="text-center mt-3">
+                            <button type="submit" class="btn btn-primary btn-dark mb-1">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal Add Trainers per Course-->
+    <div class="modal fade" id="add_new" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Trainers per Course!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!--Form-->
+                <div class="modal-body">
+                    <form id="add_new_form" name="add_form" autocomplete="off">
+                        <div class="form-group">
+                            <label for="languages">Title</label>
+                            <input list="languages" class="form-control" id="title" name="title" value="" placeholder="Enter a programming language as a title*" pattern="[a-zA-Z]+|(c|C)(#|\+\+)" required="" oninvalid="this.setCustomValidity('Format must be letters or C# or C++')" oninput="setCustomValidity('')">
+                        </div>
+                        <div class="form-group">
+                            <label for="stream">Stream</label>
+                            <input type="text" class="form-control" id="stream" name="stream" value="" placeholder="Enter a stream (CB-8 to CB-15)*" pattern="(cb|CB)-[8-9]|(cb|CB)-1([0-5])" required="" oninvalid="this.setCustomValidity('Format must be (CB-8 to CB-15)')" oninput="setCustomValidity('')" />
+                        </div>
+                        <div class="form-check mt-3 mb-1">
+                            <label class="form-check-label" for="full-time">Full Time</label>
+                            <input class="form-check-input ml-2" type="radio" name="type" id="full-time" value="fullTime" required>
+                        </div>
+                        <div class="form-check mt-1 mb-2">
+                            <label class="form-check-label" for="part-time">Part Time</label>
+                            <input class="form-check-input ml-2" type="radio" name="type" id="part-time" value="partTime" required><br />
+                            <small class="mb-3">Please choose Part Time or Full Time, above.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="startDate">Starting Date</label>
+                            <input type="date" class="form-control" id="start_date" name="startDate" value="" placeholder="Minimum Date 01-01-2017" min="2017-01-01" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="endingDate">Ending Date</label>
+                            <input type="date" class="form-control" id="end_date" name="endDate" value="" placeholder="Maximum Date 10-05-2022" max="2022-05-10" required />
+                        </div>
+                        <div class="form-check mt-2">
+                            <small>Hold ctrl or shift (or drag with the mouse) to select multiple trainers.</small>
+                            <select class="form-control" id="multi-select" name="trainers" value="" multiple required>
+                                <option value="panos_sakelarios">Panos Sakelarios</option>
+                                <option value="george_kesopoulos">George Kesopoulos</option>
+                                <option value="hlias_karageorgos">Hlias Karageorgos</option>
+                                <option value="stauros_gouleas">Stauros Gouleas</option>
+                            </select>
+                        </div>
+                        <div class="text-center mt-3">
+                            <button type="submit" class="btn btn-primary btn-dark mb-1">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal Edit Table-->
+    <div class="modal fade" id="edit" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog alert-warning bg-warning">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Trainers per Course!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!--Form-->
+                <div class="modal-body">
+                    <form id="edit_form" name="add_form" autocomplete="off">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control" id="title" name="title" value="C#" placeholder="Enter a programming language as a title*" pattern="[a-zA-Z]+|(c|C)(#|\+\+)" required="" oninvalid="this.setCustomValidity('Format must be letters or C# or C++')" oninput="setCustomValidity('')">
+                        </div>
+                        <div class="form-group">
+                            <label for="stream">Stream</label>
+                            <input type="text" class="form-control" id="stream" name="stream" value="CB-8" placeholder="Enter a stream (CB-8 to CB-15)*" pattern="(cb|CB)-[8-9]|(cb|CB)-1([0-5])" required="" oninvalid="this.setCustomValidity('Format must be (CB-8 to CB-15)')" oninput="setCustomValidity('')" />
+                        </div>
+                        <div class="form-check mt-3 mb-1">
+                            <label class="form-check-label" for="full-time1">Full Time</label>
+                            <input class="form-check-input ml-2" type="radio" name="type" id="full-time1" value="fullTime" checked required>
+                        </div>
+                        <div class="form-check mt-1 mb-2">
+                            <label class="form-check-label" for="part-time-edit">Part Time</label>
+                            <input class="form-check-input ml-2" type="radio" name="type" id="part-time-edit" value="partTime" required><br />
+                            <small class="mb-3">Please choose Part Time or Full Time, above.</small>
+                        </div>
+                        <div class="form-group text-center">
+                            This Course now has:<br /><strong>Panos Sakelarios, George Kesopoulos and Stauros Gouleas</strong><br />as Trainers
+                        </div>
+                        <div class="form-check mt-2">
+                            <small>Hold ctrl or shift (or drag with the mouse) to select multiple trainers.</small>
+                            <select class="form-control" id="multi-select" name="trainers" value="" multiple>
+                                <option value="panos_sakelarios" selected>Panos Sakelarios</option>
+                                <option value="george_kesopoulos" selected>George Kesopoulos</option>
+                                <option value="hlias_karageorgos">Hlias Karageorgos</option>
+                                <option value="stauros_gouleas" selected>Stauros Gouleas</option>
+                            </select>
+                        </div>
+                        <div class="text-center mt-3">
+                            <button type="submit" class="btn btn-primary btn-dark mb-1">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal Delete-->
+    <div class="modal fade" id="delete" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog alert-danger bg-danger">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete entire table row!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h6>Are you sure you want to delete this Trainers per Course?</h6><br />
+                    <strong>Title:</strong> <span>C#</span><br />
+                    <strong>Stream:</strong> <span>CB-8</span><br />
+                    <strong>Type:</strong> <span>Foul Time</span><br />
+                    <strong>Trainers:</strong> <span>Panos Sakelarios, George Kessopoulos, Stauros Gouleas</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Header-->
+    <div class="header"></div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-3 text-center"><h2 class="pr-4">Trainers per Course</h2></div>
+        <div class="col-1"></div>
+        <div id="seperator"></div>
+        <div class="col-2 text-right">
+            <button type="button" class="btn btn-primary btn-dark" data-toggle="modal" data-target="#pair">
+                Pair Trainers per Course
+            </button>
+        </div>
+        <div class="col-3 text-left">
+            <button type="button" class="btn btn-primary btn-dark" data-toggle="modal" data-target="#add_new">
+                Add Trainers per Course
+            </button>
+        </div>
+    </div>
+
+    <!--Navigation-->
+    <div class="col-1 float-left">
+        <div class="btn-group-vertical">
+            <button onclick="document.location='../index.html'" id="home" class="btn btn-outline-secondary">Return Home</button>
+            <button onclick="document.location='courses.html'" class="btn btn-outline-secondary w-100">Courses</button>
+            <button onclick="document.location='trainers.html'" class="btn btn-outline-secondary w-100">Trainers</button>
+            <button onclick="document.location='students.html'" class="btn btn-outline-secondary w-100">Students</button>
+            <button onclick="document.location='assignments.html'" class="btn btn-outline-secondary w-100">Assignments</button>
+            <button onclick="document.location='trainers_per_course.html'" class="btn btn-outline-secondary btn-dark w-100">Trainers per Course</button>
+            <button onclick="document.location='students_per_course.html'" class="btn btn-outline-secondary w-100">Students per Course</button>
+            <button onclick="document.location='assignments_per_course.html'" class="btn btn-outline-secondary w-100">Assignments per Course</button>
+            <button onclick="document.location='assignments_per_student_per_course.html'" class="btn btn-outline-secondary w-100">Assignments per Student per Course</button>
+        </div>
+    </div>
+
+    <!--Table-->
+    <div class="container">
+        <table class="table table-striped table-dark text-center" v>
+            <thead class="thead-light">
+                <tr>
+                    <th>Title</th>
+                    <th>Stream</th>
+                    <th>Type</th>
+                    <th>Trainers</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="align-middle">C#</td>
+                    <td class="align-middle">CB-8</td>
+                    <td class="align-middle">Foul Time</td>
+                    <td class="align-middle">
+                        Panos Sakelarios<br />
+                        George Kesopoulos<br />
+                        Stauros Gouleas
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#edit">
+                            Edit
+                        </button>
+                        <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#delete">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">Python</td>
+                    <td class="align-middle">CB-14</td>
+                    <td class="align-middle">Part Time</td>
+                    <td class="align-middle">
+                        Panos Sakelarios<br />
+                        Hlias Karageorgos<br />
+                        Stauros Gouleas
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#edit">
+                            Edit
+                        </button>
+                        <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#delete">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">JavaScript</td>
+                    <td class="align-middle">CB-11</td>
+                    <td class="align-middle">Part Time</td>
+                    <td class="align-middle">
+                        Panos Sakelarios<br />
+                        George Kesopoulos<br />
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#edit">
+                            Edit
+                        </button>
+                        <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#delete">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">C++</td>
+                    <td class="align-middle">CB-13</td>
+                    <td class="align-middle">Full Time</td>
+                    <td class="align-middle">
+                        Hlias Karageorgos<br />
+                        Stauros Gouleas<br />
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#edit">
+                            Edit
+                        </button>
+                        <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#delete">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">Java</td>
+                    <td class="align-middle">CB-10</td>
+                    <td class="align-middle">Full Time</td>
+                    <td class="align-middle">
+                        Panos Sakelarios<br />
+                        George Kesopoulos<br />
+                        Hlias Karageorgos<br />
+                        Stauros Gouleas
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#edit">
+                            Edit
+                        </button>
+                        <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#delete">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--Scripts-->
+    <script src="../Scripts/jquery-3.0.0.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script src="../Scripts/popper.min.js"></script>
+    <script src="../JS/brain.js"></script>
+</body>
+</html>
