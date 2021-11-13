@@ -1,0 +1,42 @@
+﻿body {
+    width: 99%;
+    background-image: linear-gradient(to left, #9c9c9c, #ffffff);
+}
+
+.header {
+    width: 100%;
+    height: 150px;
+}
+
+input[type=date] {
+    text-align: right;
+}
+
+input[type="date"]:before {
+    color: lightgrey;
+    content: attr(placeholder) !important;
+    margin-right: 0.5em;
+}
+
+input[type="date"]:focus:before {
+    content: '' !important;
+}
+
+#home {
+    border-width: 5px;
+    border-radius: 15px 15px 0 0;
+    border-style: double;
+}
+
+.form-control:focus {
+    border-color: #3d3d3d;
+    box-shadow: inset 0 1px 1px #3d3d3d, 0 0 8px #3d3d3d;
+}
+
+#first_name:invalid, #last_name:invalid, #birth-date:invalid, #fees:invalid {
+    border-color: red;
+}
+
+#first_name:valid, #last_name:valid, #birth-date:valid, #fees:valid {
+    border-color: green;
+}
