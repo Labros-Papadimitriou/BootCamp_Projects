@@ -1,0 +1,7 @@
+G:\Bootcamp\ProjectPartA\ProjectPartA\obj\Debug\ProjectPartA.csproj.AssemblyReference.cache
+G:\Bootcamp\ProjectPartA\ProjectPartA\obj\Debug\ProjectPartA.csproj.CoreCompileInputs.cache
+G:\Bootcamp\ProjectPartA\ProjectPartA\bin\Debug\ProjectPartA.exe.config
+G:\Bootcamp\ProjectPartA\ProjectPartA\bin\Debug\ProjectPartA.exe
+G:\Bootcamp\ProjectPartA\ProjectPartA\bin\Debug\ProjectPartA.pdb
+G:\Bootcamp\ProjectPartA\ProjectPartA\obj\Debug\ProjectPartA.exe
+G:\Bootcamp\ProjectPartA\ProjectPartA\obj\Debug\ProjectPartA.pdb
